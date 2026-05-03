@@ -2,19 +2,19 @@ import { useState, useEffect, useRef } from "react";
 
 // ── Real flower images from Pexels ──────────────────────────────────────────
 const CARD_IMAGES = [
-  "https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=600",
+  "https://i.pinimg.com/1200x/dc/5b/af/dc5baf5d77a42cad18af7f8acf463689.jpg",
   "https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=600",
-  "https://images.pexels.com/photos/1086178/pexels-photo-1086178.jpeg?auto=compress&cs=tinysrgb&w=600",
-  "https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=600",
+  "https://i.pinimg.com/1200x/2e/7b/2d/2e7b2df025b4474836447395179eeccf.jpg",
+  "https://i.pinimg.com/1200x/96/c9/2d/96c92d0d9f0526f11299fbca37ef61f3.jpg",
   "https://images.pexels.com/photos/46216/sunflower-flowers-bright-yellow-46216.jpeg?auto=compress&cs=tinysrgb&w=600",
-  "https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=600",
+  "https://i.pinimg.com/1200x/32/09/d3/3209d3019750e9b31e1842d0a3af3301.jpg",
 ];
 
 const HERO_IMAGE =
-  "https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=1200";
+  "/Background.png";
 
 const STORY_IMAGE =
-  "https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=900";
+  "https://i.pinimg.com/736x/59/a9/af/59a9afd3b7013c73872c2382089b134a.jpg";
 
 const CTA_IMAGE =
   "https://images.pexels.com/photos/1086178/pexels-photo-1086178.jpeg?auto=compress&cs=tinysrgb&w=1400";
@@ -168,14 +168,15 @@ export default function MalKade() {
       }}
     >
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=Noto+Serif+Sinhala:wght@400;500;600;700&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: #E8F4F1; }
         ::-webkit-scrollbar-thumb { background: #2D5039; border-radius: 3px; }
+        .sinhala-text { font-family: 'Noto Serif Sinhala', Georgia, serif; font-weight: 400; }
         .btn-primary {
           background: #2D5039; color: #FEFDFB; border: none;
-          padding: 13px 32px; font-family: 'Jost', sans-serif;
+          padding: 13px 32px; font-family: 'Jost', sans-serif;2
           font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
           cursor: pointer; transition: all .3s;
         }
@@ -252,23 +253,32 @@ export default function MalKade() {
       <section
         id="collections"
         style={{
-          minHeight: "100vh", display: "grid",
-          gridTemplateColumns: "1fr 1fr", overflow: "hidden",
+          minHeight: "100vh", display: "flex",
+          alignItems: "center", justifyContent: "flex-start",
+          overflow: "hidden", position: "relative",
+          backgroundImage: `url(${HERO_IMAGE})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
         }}
       >
+        {/* Background Overlay */}
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(254,253,251,0.92) 0%, rgba(254,253,251,0.7) 40%, transparent 100%)" }} />
+
         <div
           className="hero-anim"
           style={{
-            background: "linear-gradient(135deg,#FEFDFB 0%,#F8F7F4 60%,#E8F4F1 100%)",
+            position: "relative", zIndex: 1,
             display: "flex", flexDirection: "column", justifyContent: "center",
             padding: "120px 7% 80px",
+            maxWidth: "600px",
           }}
         >
           <p className="d1" style={{ fontFamily: "'Jost', sans-serif", fontSize: 11, letterSpacing: 4, textTransform: "uppercase", color: "#2D5039", marginBottom: 22 }}>
-            ✦ Floral Artistry from Sri Lanka
+            ✦ Mal Artistry from Sri Lanka
           </p>
-          <h1 className="d2" style={{ fontSize: "clamp(44px,5.5vw,82px)", fontWeight: 300, lineHeight: 1.05, color: "#1A2E25", letterSpacing: -1, marginBottom: 22 }}>
-            Where flowers<br /><em style={{ fontStyle: "italic", color: "#2D5039" }}>tell stories</em>
+          <h1 className="d2" style={{ fontSize: "clamp(44px,5.5vw,82px)", fontWeight: 300, lineHeight: 1.05, color: "#1A2E25", letterSpacing: -1, marginBottom: 22, fontFamily: "'Playfair Display', Georgia, serif" }}>
+            Where <span style={{ fontFamily: "'Noto Serif Sinhala', Georgia, serif", fontWeight: 400, color: "#2D5039", letterSpacing: 0.5 }}>මල්</span><br /><em style={{ fontStyle: "italic", color: "#2D5039" }}>stories in bloom</em>
           </h1>
           <p className="d3" style={{ fontSize: 16, fontWeight: 300, lineHeight: 1.85, color: "#4A4A3A", maxWidth: 390, marginBottom: 34 }}>
             Each bouquet is a handcrafted poem. We work with the finest seasonal blooms, wrapped in the tradition of Sri Lanka's garden culture.
@@ -290,15 +300,6 @@ export default function MalKade() {
             ))}
           </div>
         </div>
-        <div style={{ position: "relative", overflow: "hidden" }}>
-          <img
-            src={HERO_IMAGE}
-            alt="Beautiful flower bouquet"
-            className="hero-right-img"
-            style={{ width: "100%", height: "100%", objectFit: "cover", transform: "scale(1.05)" }}
-          />
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right,rgba(250,250,247,.15) 0%,transparent 100%)" }} />
-        </div>
       </section>
 
       {/* ── MARQUEE ── */}
@@ -319,7 +320,7 @@ export default function MalKade() {
       <section id="occasions" style={{ padding: "80px 7%", background: "#FAFAF7", textAlign: "center" }}>
         <AnimSection>
           <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 11, letterSpacing: 4, textTransform: "uppercase", color: "#2D5039", marginBottom: 14 }}>
-            Shop by Mood
+            Mal Kade - Shop by Mood
           </p>
           <h2 style={{ fontSize: "clamp(30px,3.5vw,50px)", fontWeight: 300, color: "#1A2E25" }}>
             Every occasion, <em style={{ fontStyle: "italic" }}>perfectly bloomed</em>
@@ -346,7 +347,7 @@ export default function MalKade() {
           <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: 36 }}>
             <div>
               <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 11, letterSpacing: 4, textTransform: "uppercase", color: "#2D5039", marginBottom: 10 }}>
-                Our Collection
+                Mal Collection
               </p>
               <h2 style={{ fontSize: "clamp(30px,3.5vw,50px)", fontWeight: 300, color: "#1A2E25" }}>Signature Bouquets</h2>
             </div>
@@ -415,7 +416,7 @@ export default function MalKade() {
             {/* Text */}
             <div>
               <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 11, letterSpacing: 4, textTransform: "uppercase", color: "#A8DDD9", marginBottom: 18 }}>
-                Our Heritage
+                Mal Heritage
               </p>
               <h2 style={{ fontSize: "clamp(32px,3.5vw,54px)", fontWeight: 300, lineHeight: 1.15, marginBottom: 22, color: "#FEFDFB" }}>
                 Rooted in Sri Lanka's<br /><em style={{ fontStyle: "italic", color: "#7FD4C4" }}>floral tradition</em>
@@ -455,9 +456,9 @@ export default function MalKade() {
       {/* ── TESTIMONIALS ── */}
       <section style={{ padding: "80px 7%", background: "#FEFDFB" }}>
         <AnimSection>
-          <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 11, letterSpacing: 4, textTransform: "uppercase", color: "#2D5039", marginBottom: 14, textAlign: "center" }}>Voices</p>
+          <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 11, letterSpacing: 4, textTransform: "uppercase", color: "#2D5039", marginBottom: 14, textAlign: "center" }}>Voice of Love</p>
           <h2 style={{ fontSize: "clamp(30px,3.5vw,50px)", fontWeight: 300, color: "#1A2E25", textAlign: "center" }}>
-            They said it with <em style={{ fontStyle: "italic" }}>flowers</em>
+            Said it with <em style={{ fontStyle: "italic" }}>Mal</em>
           </h2>
         </AnimSection>
         <AnimSection delay={0.15}>
@@ -475,12 +476,11 @@ export default function MalKade() {
       </section>
 
       {/* ── CTA ── */}
-      <section style={{ position: "relative", height: 480, display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", overflow: "hidden" }}>
-        <img src={CTA_IMAGE} alt="Floral background" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+      <section style={{ position: "relative", height: 480, display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", overflow: "hidden", backgroundImage: `url(${HERO_IMAGE})`, backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed" }}>
         <div style={{ position: "absolute", inset: 0, background: "rgba(26,46,37,.72)" }} />
         <AnimSection style={{ position: "relative", zIndex: 2, padding: "0 5%" }}>
-          <h2 style={{ fontSize: "clamp(34px,4vw,58px)", fontWeight: 300, color: "#FEFDFB", marginBottom: 14, lineHeight: 1.15 }}>
-            Ready to say it<br /><em style={{ fontStyle: "italic", color: "#7FD4C4" }}>without words?</em>
+          <h2 style={{ fontSize: "clamp(34px,4vw,58px)", fontWeight: 300, color: "#FEFDFB", marginBottom: 14, lineHeight: 1.15, fontFamily: "'Noto Sans Sinhala', 'Playfair Display', Georgia, serif" }}>
+            මල් Kade<br /><em style={{ fontStyle: "italic", color: "#7FD4C4" }}>without words?</em>
           </h2>
           <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 13, color: "rgba(245,236,215,.65)", letterSpacing: 1, marginBottom: 30 }}>
             Custom bouquets crafted within 24 hours. Free delivery on orders over LKR 5,000.
@@ -502,7 +502,7 @@ export default function MalKade() {
       <footer style={{ background: "#111A14", color: "rgba(245,236,215,.55)", padding: "50px 7% 28px" }}>
         <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: 40, marginBottom: 40 }}>
           <div>
-            <div style={{ fontSize: 22, fontWeight: 500, color: "#7FD4C4", marginBottom: 10, letterSpacing: 1 }}>MalKade</div>
+            <img src="/MalKade_LogoFooter.png" alt="MalKade Logo" style={{ height: 20, objectFit: "contain", marginBottom: 10 }} />
             <p style={{ fontSize: 12.5, fontWeight: 300, lineHeight: 1.8, maxWidth: 210 }}>Handcrafted floral arrangements rooted in Sri Lanka's garden heritage.</p>
           </div>
           {[
