@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/malkade/static/css/main.e6c13ad2.css",
-    "main.js": "/malkade/static/js/main.9e7977f4.js",
-    "static/js/453.506d79e8.chunk.js": "/malkade/static/js/453.506d79e8.chunk.js",
-    "index.html": "/malkade/index.html",
-    "main.e6c13ad2.css.map": "/malkade/static/css/main.e6c13ad2.css.map",
-    "main.9e7977f4.js.map": "/malkade/static/js/main.9e7977f4.js.map",
-    "453.506d79e8.chunk.js.map": "/malkade/static/js/453.506d79e8.chunk.js.map"
+    "main.css": "/MalKade/static/css/main.e6c13ad2.css",
+    "main.js": "/MalKade/static/js/main.0c69ef6b.js",
+    "static/js/453.506d79e8.chunk.js": "/MalKade/static/js/453.506d79e8.chunk.js",
+    "index.html": "/MalKade/index.html",
+    "main.e6c13ad2.css.map": "/MalKade/static/css/main.e6c13ad2.css.map",
+    "main.0c69ef6b.js.map": "/MalKade/static/js/main.0c69ef6b.js.map",
+    "453.506d79e8.chunk.js.map": "/MalKade/static/js/453.506d79e8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.9e7977f4.js"
+    "static/js/main.0c69ef6b.js"
   ]
 }
