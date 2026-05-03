@@ -499,7 +499,7 @@ export default function MalKade() {
       <footer style={{ background: "#111A14", color: "rgba(245,236,215,.55)", padding: "50px 7% 28px" }}>
         <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: 40, marginBottom: 40 }}>
           <div>
-            <img src="/MalKade_LogoFooter.png" alt="MalKade Logo" style={{ height: 20, objectFit: "contain", marginBottom: 10 }} />
+            <img src={process.env.PUBLIC_URL + "/MalKade_LogoFooter.png"} alt="MalKade Logo" style={{ height: 20, objectFit: "contain", marginBottom: 10 }} />
             <p style={{ fontSize: 12.5, fontWeight: 300, lineHeight: 1.8, maxWidth: 210 }}>Handcrafted floral arrangements rooted in Sri Lanka's garden heritage.</p>
           </div>
           {[
