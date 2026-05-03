@@ -1,7 +1,7 @@
 {
     "buildCommand": "npm run build",
     "outputDirectory": "build",
-    "redirects": [
-        { "source": "/malkade", "destination": "/", "permanent": true }
-    ]
+    "env": {
+        "PUBLIC_URL": "/"
+    }
 }
