@@ -1,4 +1,7 @@
 {
-    "buildCommand": "PUBLIC_URL=/ npm run build",
-    "outputDirectory": "build"
+    "buildCommand": "npm run build",
+    "outputDirectory": "build",
+    "redirects": [
+        { "source": "/malkade", "destination": "/", "permanent": true }
+    ]
 }
