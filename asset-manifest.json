@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/malkade/static/css/main.e6c13ad2.css",
+    "main.js": "/malkade/static/js/main.7800832a.js",
+    "static/js/453.506d79e8.chunk.js": "/malkade/static/js/453.506d79e8.chunk.js",
+    "index.html": "/malkade/index.html",
+    "main.e6c13ad2.css.map": "/malkade/static/css/main.e6c13ad2.css.map",
+    "main.7800832a.js.map": "/malkade/static/js/main.7800832a.js.map",
+    "453.506d79e8.chunk.js.map": "/malkade/static/js/453.506d79e8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.7800832a.js"
+  ]
+}
