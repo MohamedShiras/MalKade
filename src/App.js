@@ -16,9 +16,6 @@ const HERO_IMAGE =
 const STORY_IMAGE =
   "https://i.pinimg.com/736x/59/a9/af/59a9afd3b7013c73872c2382089b134a.jpg";
 
-const CTA_IMAGE =
-  "https://images.pexels.com/photos/1086178/pexels-photo-1086178.jpeg?auto=compress&cs=tinysrgb&w=1400";
-
 // ── Data ────────────────────────────────────────────────────────────────────
 const flowers = [
   {
@@ -117,7 +114,7 @@ function useInView(ref, threshold = 0.12) {
     );
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
-  }, []);
+  }, [threshold, ref]);
   return inView;
 }
 
@@ -351,7 +348,7 @@ export default function MalKade() {
               </p>
               <h2 style={{ fontSize: "clamp(30px,3.5vw,50px)", fontWeight: 300, color: "#1A2E25" }}>Signature Bouquets</h2>
             </div>
-            <a href="#" style={{ fontFamily: "'Jost', sans-serif", fontSize: 12, letterSpacing: 2, textTransform: "uppercase", color: "#2D5039", textDecoration: "none", borderBottom: "1px solid #2D5039", paddingBottom: 2 }}>
+            <a href="/malkade" style={{ fontFamily: "'Jost', sans-serif", fontSize: 12, letterSpacing: 2, textTransform: "uppercase", color: "#2D5039", textDecoration: "none", borderBottom: "1px solid #2D5039", paddingBottom: 2 }}>
               View All →
             </a>
           </div>
