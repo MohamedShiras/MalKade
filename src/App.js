@@ -173,7 +173,7 @@ export default function MalKade() {
         .sinhala-text { font-family: 'Noto Serif Sinhala', Georgia, serif; font-weight: 400; }
         .btn-primary {
           background: #2D5039; color: #FEFDFB; border: none;
-          padding: 13px 32px; font-family: 'Jost', sans-serif;2
+          padding: 13px 32px; font-family: 'Jost', sans-serif;
           font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
           cursor: pointer; transition: all .3s;
         }
@@ -214,27 +214,80 @@ export default function MalKade() {
         .d4{animation-delay:.75s} .d5{animation-delay:.95s}
         .hero-right-img { transition: transform 8s ease; }
         .hero-right-img:hover { transform: scale(1.03) !important; }
+        
+        /* ── MOBILE RESPONSIVE ── */
+        @media (max-width: 1024px) {
+          .btn-primary, .btn-outline {
+            padding: 11px 24px;
+            font-size: 10px;
+          }
+          .pill-btn {
+            padding: 8px 16px;
+            font-size: 11px;
+          }
+        }
+        
+        @media (max-width: 768px) {
+          .nav-link {
+            font-size: 10px;
+            margin: 0 10px !important;
+          }
+          .btn-primary, .btn-outline {
+            padding: 10px 18px;
+            font-size: 9px;
+            min-height: 44px;
+          }
+          .pill-btn {
+            padding: 8px 14px;
+            font-size: 10px;
+          }
+          .footer-link { font-size: 11px; }
+          .card-wrap:hover { transform: translateY(-6px) scale(1.01); }
+        }
+        
+        @media (max-width: 640px) {
+          .nav-link {
+            display: none;
+          }
+          .btn-primary, .btn-outline {
+            padding: 10px 16px;
+            font-size: 8px;
+            letter-spacing: 1.5px;
+            width: 100%;
+          }
+          .pill-btn {
+            padding: 7px 12px;
+            font-size: 9px;
+            letter-spacing: 1px;
+            flex: 1;
+            min-width: 75px;
+          }
+          .footer-link { font-size: 10px; }
+          .card-wrap:hover { transform: translateY(-4px) scale(1.005); }
+        }
       `}</style>
 
       {/* ── NAV ── */}
       <nav
         style={{
           position: "fixed", top: 0, left: 0, right: 0, zIndex: 200,
-          padding: "0 5%", height: 100,
+          padding: "0 4%", height: "auto",
+          minHeight: 70,
           display: "flex", alignItems: "center", justifyContent: "space-between",
           background: scrollY > 60 ? "rgba(254,253,251,0.96)" : "transparent",
           backdropFilter: scrollY > 60 ? "blur(14px)" : "none",
           borderBottom: scrollY > 60 ? "1px solid rgba(127,212,196,.25)" : "none",
           transition: "all .4s",
+          flexWrap: "wrap",
         }}
       >
-        <img src={process.env.PUBLIC_URL + "/MalKade_LogoTT.png"} alt="MalKade Logo" style={{ height: 30, objectFit: "contain", flexShrink: 0 }} />
-        <div style={{ display: "flex", gap: 4 }}>
+        <img src={process.env.PUBLIC_URL + "/MalKade_LogoTT.png"} alt="MalKade Logo" style={{ height: "clamp(24px, 4vw, 30px)", objectFit: "contain", flexShrink: 0 }} />
+        <div style={{ display: "flex", gap: "clamp(8px, 2vw, 16px)", alignItems: "center" }}>
           {["Collections", "Occasions", "Story", "Contact"].map((l) => (
-            <a key={l} href={`#${l.toLowerCase()}`} className="nav-link" style={{ margin: "0 16px" }}>{l}</a>
+            <a key={l} href={`#${l.toLowerCase()}`} className="nav-link" style={{ margin: "0 clamp(8px, 1vw, 16px)" }}>{l}</a>
           ))}
         </div>
-        <div style={{ fontFamily: "'Jost', sans-serif", fontSize: 12, letterSpacing: 2, textTransform: "uppercase", color: "#2D5039", cursor: "pointer", position: "relative" }}>
+        <div style={{ fontFamily: "'Jost', sans-serif", fontSize: "clamp(10px, 2vw, 12px)", letterSpacing: 2, textTransform: "uppercase", color: "#2D5039", cursor: "pointer", position: "relative", flexShrink: 0 }}>
           🛒 Bag
           {cartCount > 0 && (
             <span style={{
@@ -257,6 +310,7 @@ export default function MalKade() {
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",
+          marginTop: "clamp(70px, 15vw, 100px)",
         }}
       >
         {/* Background Overlay */}
@@ -267,20 +321,21 @@ export default function MalKade() {
           style={{
             position: "relative", zIndex: 1,
             display: "flex", flexDirection: "column", justifyContent: "center",
-            padding: "120px 7% 80px",
-            maxWidth: "600px",
+            padding: "clamp(40px, 8vw, 120px) clamp(20px, 5%, 7%) clamp(40px, 8vw, 80px)",
+            maxWidth: "clamp(300px, 90%, 600px)",
+            width: "100%",
           }}
         >
-          <p className="d1" style={{ fontFamily: "'Jost', sans-serif", fontSize: 11, letterSpacing: 4, textTransform: "uppercase", color: "#2D5039", marginBottom: 22 }}>
+          <p className="d1" style={{ fontFamily: "'Jost', sans-serif", fontSize: "clamp(9px, 2vw, 11px)", letterSpacing: "clamp(2px, 1vw, 4px)", textTransform: "uppercase", color: "#2D5039", marginBottom: "clamp(14px, 3vw, 22px)" }}>
             ✦ Mal Artistry from Sri Lanka
           </p>
-          <h1 className="d2" style={{ fontSize: "clamp(44px,5.5vw,82px)", fontWeight: 300, lineHeight: 1.05, color: "#1A2E25", letterSpacing: -1, marginBottom: 22, fontFamily: "'Playfair Display', Georgia, serif" }}>
+          <h1 className="d2" style={{ fontSize: "clamp(32px, 8vw, 82px)", fontWeight: 300, lineHeight: 1.05, color: "#1A2E25", letterSpacing: -1, marginBottom: "clamp(14px, 3vw, 22px)", fontFamily: "'Playfair Display', Georgia, serif" }}>
             Where <span style={{ fontFamily: "'Noto Serif Sinhala', Georgia, serif", fontWeight: 400, color: "#2D5039", letterSpacing: 0.5 }}>මල්</span><br /><em style={{ fontStyle: "italic", color: "#2D5039" }}>stories in bloom</em>
           </h1>
-          <p className="d3" style={{ fontSize: 16, fontWeight: 300, lineHeight: 1.85, color: "#4A4A3A", maxWidth: 390, marginBottom: 34 }}>
+          <p className="d3" style={{ fontSize: "clamp(13px, 3.5vw, 16px)", fontWeight: 300, lineHeight: 1.75, color: "#4A4A3A", maxWidth: 390, marginBottom: "clamp(20px, 4vw, 34px)" }}>
             Each bouquet is a handcrafted poem. We work with the finest seasonal blooms, wrapped in the tradition of Sri Lanka's garden culture.
           </p>
-          <div className="d4" style={{ display: "flex", gap: 12 }}>
+          <div className="d4" style={{ display: "flex", gap: "clamp(8px, 2vw, 12px)", flexWrap: "wrap" }}>
             <button className="btn-primary" onClick={() => document.getElementById("collection")?.scrollIntoView({ behavior: "smooth" })}>
               Explore Bouquets
             </button>
@@ -288,11 +343,11 @@ export default function MalKade() {
               Our Story
             </button>
           </div>
-          <div className="d5" style={{ display: "flex", gap: 36, marginTop: 40, paddingTop: 26, borderTop: "1px solid rgba(196,168,130,.4)" }}>
+          <div className="d5" style={{ display: "flex", gap: "clamp(16px, 5vw, 36px)", marginTop: "clamp(24px, 5vw, 40px)", paddingTop: "clamp(14px, 3vw, 26px)", borderTop: "1px solid rgba(196,168,130,.4)", flexWrap: "wrap" }}>
             {[["200+", "Flower Varieties"], ["12", "Years Crafting"], ["4,000+", "Happy Clients"]].map(([n, l]) => (
               <div key={l}>
-                <div style={{ fontSize: 24, fontWeight: 500, color: "#2D5039" }}>{n}</div>
-                <div style={{ fontFamily: "'Jost', sans-serif", fontSize: 10, letterSpacing: 1.5, textTransform: "uppercase", color: "#888", marginTop: 3 }}>{l}</div>
+                <div style={{ fontSize: "clamp(18px, 4vw, 24px)", fontWeight: 500, color: "#2D5039" }}>{n}</div>
+                <div style={{ fontFamily: "'Jost', sans-serif", fontSize: "clamp(8px, 1.5vw, 10px)", letterSpacing: "clamp(1px, 1vw, 1.5px)", textTransform: "uppercase", color: "#888", marginTop: 3 }}>{l}</div>
               </div>
             ))}
           </div>
@@ -300,11 +355,11 @@ export default function MalKade() {
       </section>
 
       {/* ── MARQUEE ── */}
-      <div style={{ background: "#2D5039", padding: "14px 0", overflow: "hidden", whiteSpace: "nowrap" }}>
+      <div style={{ background: "#2D5039", padding: "clamp(8px, 2vw, 14px) 0", overflow: "hidden", whiteSpace: "nowrap" }}>
         <div style={{
-          display: "inline-flex", gap: 52,
+          display: "inline-flex", gap: "clamp(30px, 5vw, 52px)",
           animation: "marquee 100s linear infinite",
-          fontFamily: "'Jost', sans-serif", fontSize: 11, letterSpacing: 3,
+          fontFamily: "'Jost', sans-serif", fontSize: "clamp(8px, 2vw, 11px)", letterSpacing: "clamp(1.5px, 1vw, 3px)",
           textTransform: "uppercase", color: "#A8DDD9",
         }}>
           {Array(8).fill(["✦ Same Day Delivery", "✦ Hand-Tied Bouquets", "✦ Fresh From Garden", "✦ Custom Orders Welcome", "✦ Free Delivery Over LKR 5000", "✦ 100% Sustainable Wrapping"]).flat().map((t, i) => (
@@ -314,24 +369,24 @@ export default function MalKade() {
       </div>
 
       {/* ── OCCASIONS ── */}
-      <section id="occasions" style={{ padding: "80px 7%", background: "#FAFAF7", textAlign: "center" }}>
+      <section id="occasions" style={{ padding: "clamp(40px, 8vw, 80px) clamp(20px, 5%, 7%)", background: "#FAFAF7", textAlign: "center" }}>
         <AnimSection>
-          <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 11, letterSpacing: 4, textTransform: "uppercase", color: "#2D5039", marginBottom: 14 }}>
+          <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "clamp(9px, 2vw, 11px)", letterSpacing: "clamp(2px, 1vw, 4px)", textTransform: "uppercase", color: "#2D5039", marginBottom: 14 }}>
             Mal Kade - Shop by Mood
           </p>
-          <h2 style={{ fontSize: "clamp(30px,3.5vw,50px)", fontWeight: 300, color: "#1A2E25" }}>
+          <h2 style={{ fontSize: "clamp(24px, 5vw, 50px)", fontWeight: 300, color: "#1A2E25" }}>
             Every occasion, <em style={{ fontStyle: "italic" }}>perfectly bloomed</em>
           </h2>
         </AnimSection>
         <AnimSection delay={0.15}>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 10, justifyContent: "center", marginTop: 30 }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "clamp(6px, 2vw, 10px)", justifyContent: "center", marginTop: "clamp(20px, 4vw, 30px)" }}>
             {occasions.map(({ icon, label }) => (
               <button
                 key={label}
                 className={`pill-btn ${activeOccasion === label ? "pill-active" : ""}`}
                 onClick={() => setActiveOccasion(activeOccasion === label ? null : label)}
               >
-                {icon} {label}
+                {icon} <span style={{ display: "none" }} >{label}</span>
               </button>
             ))}
           </div>
@@ -339,21 +394,21 @@ export default function MalKade() {
       </section>
 
       {/* ── COLLECTION GRID ── */}
-      <section id="collection" style={{ padding: "0 5% 100px" }}>
+      <section id="collection" style={{ padding: "clamp(40px, 8vw, 100px) clamp(20px, 5%, 7%)" }}>
         <AnimSection>
-          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: 36 }}>
+          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "clamp(24px, 4vw, 36px)", flexWrap: "wrap", gap: 20 }}>
             <div>
-              <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 11, letterSpacing: 4, textTransform: "uppercase", color: "#2D5039", marginBottom: 10 }}>
+              <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "clamp(9px, 2vw, 11px)", letterSpacing: "clamp(2px, 1vw, 4px)", textTransform: "uppercase", color: "#2D5039", marginBottom: 10 }}>
                 Mal Collection
               </p>
-              <h2 style={{ fontSize: "clamp(30px,3.5vw,50px)", fontWeight: 300, color: "#1A2E25" }}>Signature Bouquets</h2>
+              <h2 style={{ fontSize: "clamp(24px, 5vw, 50px)", fontWeight: 300, color: "#1A2E25" }}>Signature Bouquets</h2>
             </div>
-            <a href="/malkade" style={{ fontFamily: "'Jost', sans-serif", fontSize: 12, letterSpacing: 2, textTransform: "uppercase", color: "#2D5039", textDecoration: "none", borderBottom: "1px solid #2D5039", paddingBottom: 2 }}>
+            <a href="/malkade" style={{ fontFamily: "'Jost', sans-serif", fontSize: "clamp(10px, 2vw, 12px)", letterSpacing: "clamp(1.5px, 1vw, 2px)", textTransform: "uppercase", color: "#2D5039", textDecoration: "none", borderBottom: "1px solid #2D5039", paddingBottom: 2 }}>
               View All →
             </a>
           </div>
         </AnimSection>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 22 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "clamp(14px, 3vw, 22px)" }}>
           {flowers.map((f, i) => (
             <AnimSection key={f.id} delay={i * 0.08}>
               <div className="card-wrap">
@@ -362,27 +417,27 @@ export default function MalKade() {
                   position: "absolute", top: 14, left: 14, zIndex: 2,
                   background: f.badgeClass === "luxury" ? "#1A2E25" : f.badgeClass === "rare" ? "#2C3E50" : "#2D5039",
                   color: "#FEFDFB", padding: "5px 12px",
-                  fontFamily: "'Jost', sans-serif", fontSize: 9, letterSpacing: 2.5, textTransform: "uppercase",
+                  fontFamily: "'Jost', sans-serif", fontSize: "clamp(8px, 1.5vw, 9px)", letterSpacing: "clamp(1.5px, 1vw, 2.5px)", textTransform: "uppercase",
                 }}>
                   {f.badge}
                 </span>
                 {/* Image */}
-                <div style={{ height: 230, overflow: "hidden", position: "relative" }}>
+                <div style={{ height: "clamp(180px, 40vw, 230px)", overflow: "hidden", position: "relative" }}>
                   <img src={CARD_IMAGES[i]} alt={f.name} className="card-img" loading="lazy" />
                   <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 70, background: "linear-gradient(transparent,rgba(255,255,255,.9))" }} />
                 </div>
                 {/* Content */}
-                <div style={{ padding: "20px 20px 24px" }}>
-                  <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 10, letterSpacing: 2.5, textTransform: "uppercase", color: "#7FD4C4", marginBottom: 7 }}>
+                <div style={{ padding: "clamp(14px, 3vw, 20px)" }}>
+                  <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "clamp(8px, 1.5vw, 10px)", letterSpacing: "clamp(1.5px, 1vw, 2.5px)", textTransform: "uppercase", color: "#7FD4C4", marginBottom: 7 }}>
                     {f.tagline}
                   </p>
-                  <h3 style={{ fontSize: 19, fontWeight: 400, color: "#1A2E25", marginBottom: 8 }}>{f.name}</h3>
-                  <p style={{ fontSize: 13, fontWeight: 300, lineHeight: 1.75, color: "#6A6A5A", marginBottom: 16 }}>{f.desc}</p>
-                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                    <span style={{ fontSize: 18, fontWeight: 500, color: "#2D5039" }}>{f.price}</span>
+                  <h3 style={{ fontSize: "clamp(15px, 3vw, 19px)", fontWeight: 400, color: "#1A2E25", marginBottom: 8 }}>{f.name}</h3>
+                  <p style={{ fontSize: "clamp(12px, 2vw, 13px)", fontWeight: 300, lineHeight: 1.6, color: "#6A6A5A", marginBottom: 16 }}>{f.desc}</p>
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, flexWrap: "wrap" }}>
+                    <span style={{ fontSize: "clamp(14px, 3vw, 18px)", fontWeight: 500, color: "#2D5039" }}>{f.price}</span>
                     <button
                       className="btn-primary"
-                      style={{ padding: "9px 18px", fontSize: 10, background: added === f.id ? "#1F4D3A" : "#2D5039" }}
+                      style={{ padding: "clamp(8px, 2vw, 9px) clamp(12px, 3vw, 18px)", fontSize: "clamp(8px, 1.5vw, 10px)", background: added === f.id ? "#1F4D3A" : "#2D5039" }}
                       onClick={() => handleAdd(f.id)}
                     >
                       {added === f.id ? "✓ Added" : "Add to Bag"}
@@ -396,11 +451,11 @@ export default function MalKade() {
       </section>
 
       {/* ── STORY ── */}
-      <section id="story" style={{ background: "#1A2E25", color: "#FEFDFB", padding: "100px 7%", position: "relative", overflow: "hidden" }}>
+      <section id="story" style={{ background: "#1A2E25", color: "#FEFDFB", padding: "clamp(40px, 8vw, 100px) clamp(20px, 5%, 7%)", position: "relative", overflow: "hidden" }}>
         <AnimSection>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 70, alignItems: "center" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "clamp(30px, 8vw, 70px)", alignItems: "center" }}>
             {/* Image */}
-            <div style={{ height: 460, overflow: "hidden", position: "relative" }}>
+            <div style={{ height: "clamp(300px, 50vw, 460px)", overflow: "hidden", position: "relative", order: 2 }}>
               <img
                 src={STORY_IMAGE}
                 alt="Sri Lankan floral heritage"
@@ -411,17 +466,17 @@ export default function MalKade() {
               <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg,rgba(26,46,37,.25) 0%,transparent 60%)" }} />
             </div>
             {/* Text */}
-            <div>
-              <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 11, letterSpacing: 4, textTransform: "uppercase", color: "#A8DDD9", marginBottom: 18 }}>
+            <div style={{ order: 1 }}>
+              <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "clamp(9px, 2vw, 11px)", letterSpacing: "clamp(2px, 1vw, 4px)", textTransform: "uppercase", color: "#A8DDD9", marginBottom: "clamp(12px, 2vw, 18px)" }}>
                 Mal Heritage
               </p>
-              <h2 style={{ fontSize: "clamp(32px,3.5vw,54px)", fontWeight: 300, lineHeight: 1.15, marginBottom: 22, color: "#FEFDFB" }}>
+              <h2 style={{ fontSize: "clamp(26px, 6vw, 54px)", fontWeight: 300, lineHeight: 1.15, marginBottom: "clamp(14px, 3vw, 22px)", color: "#FEFDFB" }}>
                 Rooted in Sri Lanka's<br /><em style={{ fontStyle: "italic", color: "#7FD4C4" }}>floral tradition</em>
               </h2>
-              <p style={{ fontSize: 15, fontWeight: 300, lineHeight: 1.9, color: "rgba(245,236,215,.72)", marginBottom: 16 }}>
+              <p style={{ fontSize: "clamp(13px, 2.5vw, 15px)", fontWeight: 300, lineHeight: 1.8, color: "rgba(245,236,215,.72)", marginBottom: "clamp(12px, 2vw, 16px)" }}>
                 MalKade was born from a grandmother's garden in Negombo — where jasmine threaded through frangipani and hibiscus opened at dawn. We carry that legacy into every hand-tied arrangement.
               </p>
-              <p style={{ fontSize: 15, fontWeight: 300, lineHeight: 1.9, color: "rgba(245,236,215,.72)", marginBottom: 24 }}>
+              <p style={{ fontSize: "clamp(13px, 2.5vw, 15px)", fontWeight: 300, lineHeight: 1.8, color: "rgba(245,236,215,.72)", marginBottom: "clamp(16px, 3vw, 24px)" }}>
                 Our florists are trained in both classical Sri Lankan garland-making and contemporary European arrangement. The result is something truly singular.
               </p>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 28 }}>
@@ -451,21 +506,21 @@ export default function MalKade() {
       </section>
 
       {/* ── TESTIMONIALS ── */}
-      <section style={{ padding: "80px 7%", background: "#FEFDFB" }}>
+      <section style={{ padding: "clamp(40px, 8vw, 80px) clamp(20px, 5%, 7%)", background: "#FEFDFB" }}>
         <AnimSection>
-          <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 11, letterSpacing: 4, textTransform: "uppercase", color: "#2D5039", marginBottom: 14, textAlign: "center" }}>Voice of Love</p>
-          <h2 style={{ fontSize: "clamp(30px,3.5vw,50px)", fontWeight: 300, color: "#1A2E25", textAlign: "center" }}>
+          <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "clamp(9px, 2vw, 11px)", letterSpacing: "clamp(2px, 1vw, 4px)", textTransform: "uppercase", color: "#2D5039", marginBottom: 14, textAlign: "center" }}>Voice of Love</p>
+          <h2 style={{ fontSize: "clamp(24px, 5vw, 50px)", fontWeight: 300, color: "#1A2E25", textAlign: "center" }}>
             Said it with <em style={{ fontStyle: "italic" }}>Mal</em>
           </h2>
         </AnimSection>
         <AnimSection delay={0.15}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 18, marginTop: 44 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "clamp(12px, 3vw, 18px)", marginTop: "clamp(30px, 5vw, 44px)" }}>
             {testimonials.map(({ q, name, loc, icon }) => (
-              <div key={name} style={{ background: "#FAFAF7", border: "1px solid rgba(196,168,130,.28)", padding: "28px 22px" }}>
-                <div style={{ fontSize: 26, marginBottom: 14 }}>{icon}</div>
-                <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.85, color: "#4A4A3A", fontStyle: "italic", marginBottom: 18 }}>"{q}"</p>
-                <div style={{ fontFamily: "'Jost', sans-serif", fontSize: 12, fontWeight: 500, color: "#2D5039", letterSpacing: .8 }}>{name}</div>
-                <div style={{ fontFamily: "'Jost', sans-serif", fontSize: 10, color: "#999", letterSpacing: 1.5, textTransform: "uppercase", marginTop: 3 }}>{loc}</div>
+              <div key={name} style={{ background: "#FAFAF7", border: "1px solid rgba(196,168,130,.28)", padding: "clamp(18px, 4vw, 28px)" }}>
+                <div style={{ fontSize: "clamp(20px, 4vw, 26px)", marginBottom: "clamp(10px, 2vw, 14px)" }}>{icon}</div>
+                <p style={{ fontSize: "clamp(12px, 2.5vw, 14px)", fontWeight: 300, lineHeight: 1.7, color: "#4A4A3A", fontStyle: "italic", marginBottom: "clamp(12px, 2vw, 18px)" }}>\"{q}\"</p>
+                <div style={{ fontFamily: "'Jost', sans-serif", fontSize: "clamp(11px, 2vw, 12px)", fontWeight: 500, color: "#2D5039", letterSpacing: .8 }}>{name}</div>
+                <div style={{ fontFamily: "'Jost', sans-serif", fontSize: "clamp(9px, 1.5vw, 10px)", color: "#999", letterSpacing: "clamp(1px, 1vw, 1.5px)", textTransform: "uppercase", marginTop: 3 }}>{loc}</div>
               </div>
             ))}
           </div>
@@ -473,16 +528,16 @@ export default function MalKade() {
       </section>
 
       {/* ── CTA ── */}
-      <section style={{ position: "relative", height: 480, display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", overflow: "hidden", backgroundImage: `url(${HERO_IMAGE})`, backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed" }}>
+      <section style={{ position: "relative", minHeight: "clamp(300px, 60vw, 480px)", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", overflow: "hidden", backgroundImage: `url(${HERO_IMAGE})`, backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed" }}>
         <div style={{ position: "absolute", inset: 0, background: "rgba(26,46,37,.72)" }} />
-        <AnimSection style={{ position: "relative", zIndex: 2, padding: "0 5%" }}>
-          <h2 style={{ fontSize: "clamp(34px,4vw,58px)", fontWeight: 300, color: "#FEFDFB", marginBottom: 14, lineHeight: 1.15, fontFamily: "'Noto Sans Sinhala', 'Playfair Display', Georgia, serif" }}>
+        <AnimSection style={{ position: "relative", zIndex: 2, padding: "clamp(30px, 5vw, 50px) clamp(20px, 5%, 7%)" }}>
+          <h2 style={{ fontSize: "clamp(26px, 6vw, 58px)", fontWeight: 300, color: "#FEFDFB", marginBottom: "clamp(10px, 2vw, 14px)", lineHeight: 1.2, fontFamily: "'Noto Sans Sinhala', 'Playfair Display', Georgia, serif" }}>
             මල් Kade<br /><em style={{ fontStyle: "italic", color: "#7FD4C4" }}>without words?</em>
           </h2>
-          <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 13, color: "rgba(245,236,215,.65)", letterSpacing: 1, marginBottom: 30 }}>
+          <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "clamp(11px, 2.5vw, 13px)", color: "rgba(245,236,215,.65)", letterSpacing: "clamp(0.5px, 1vw, 1px)", marginBottom: "clamp(20px, 4vw, 30px)" }}>
             Custom bouquets crafted within 24 hours. Free delivery on orders over LKR 5,000.
           </p>
-          <div style={{ display: "flex", gap: 12, justifyContent: "center" }}>
+          <div style={{ display: "flex", gap: "clamp(8px, 2vw, 12px)", justifyContent: "center", flexWrap: "wrap" }}>
             <button className="btn-primary" style={{ background: "#FEFDFB", color: "#1A2E25" }}
               onMouseOver={e => e.target.style.background = "#E8F4F1"} onMouseOut={e => e.target.style.background = "#FEFDFB"}>
               Order Now
@@ -496,11 +551,11 @@ export default function MalKade() {
       </section>
 
       {/* ── FOOTER ── */}
-      <footer style={{ background: "#111A14", color: "rgba(245,236,215,.55)", padding: "50px 7% 28px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: 40, marginBottom: 40 }}>
+      <footer style={{ background: "#111A14", color: "rgba(245,236,215,.55)", padding: "clamp(30px, 5vw, 50px) clamp(20px, 5%, 7%)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "clamp(24px, 5vw, 40px)", marginBottom: "clamp(30px, 5vw, 40px)" }}>
           <div>
-            <img src={process.env.PUBLIC_URL + "/MalKade_LogoFooter.png"} alt="MalKade Logo" style={{ height: 20, objectFit: "contain", marginBottom: 10 }} />
-            <p style={{ fontSize: 12.5, fontWeight: 300, lineHeight: 1.8, maxWidth: 210 }}>Handcrafted floral arrangements rooted in Sri Lanka's garden heritage.</p>
+            <img src={process.env.PUBLIC_URL + "/MalKade_LogoFooter.png"} alt="MalKade Logo" style={{ height: "clamp(16px, 3vw, 20px)", objectFit: "contain", marginBottom: "clamp(8px, 2vw, 10px)" }} />
+            <p style={{ fontSize: "clamp(11px, 2vw, 12.5px)", fontWeight: 300, lineHeight: 1.8, maxWidth: 210 }}>Handcrafted floral arrangements rooted in Sri Lanka's garden heritage.</p>
           </div>
           {[
             { head: "Shop", links: ["All Bouquets", "Wedding", "Sympathy", "Corporate", "Custom Order"] },
@@ -508,12 +563,12 @@ export default function MalKade() {
             { head: "Contact", links: ["WhatsApp", "Instagram", "Email Us", "Visit Studio"] },
           ].map(({ head, links }) => (
             <div key={head}>
-              <div style={{ fontFamily: "'Jost', sans-serif", fontSize: 10, letterSpacing: 3, textTransform: "uppercase", color: "#7FD4C4", marginBottom: 16 }}>{head}</div>
-              {links.map((l) => <div key={l} className="footer-link">{l}</div>)}
+              <div style={{ fontFamily: "'Jost', sans-serif", fontSize: "clamp(8px, 2vw, 10px)", letterSpacing: "clamp(1.5px, 1vw, 3px)", textTransform: "uppercase", color: "#7FD4C4", marginBottom: "clamp(10px, 2vw, 16px)" }}>{head}</div>
+              {links.map((l) => <div key={l} className="footer-link" style={{ fontSize: "clamp(9px, 1.5vw, 12px)" }}>{l}</div>)}
             </div>
           ))}
         </div>
-        <div style={{ borderTop: "1px solid rgba(196,168,130,.12)", paddingTop: 20, display: "flex", justifyContent: "space-between", fontFamily: "'Jost', sans-serif", fontSize: 11 }}>
+        <div style={{ borderTop: "1px solid rgba(196,168,130,.12)", paddingTop: "clamp(12px, 2vw, 20px)", display: "flex", justifyContent: "space-between", fontFamily: "'Jost', sans-serif", fontSize: "clamp(9px, 1.5vw, 11px)", flexWrap: "wrap", gap: 10 }}>
           <span>© 2025 MalKade. All rights reserved.</span>
           <span>Galle, Sri Lanka 🇱🇰</span>
         </div>
