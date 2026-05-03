@@ -1,0 +1,6 @@
+{
+  "buildCommand": "PUBLIC_URL=/ npm run build",
+  "env": {
+    "PUBLIC_URL": "/"
+  }
+}
