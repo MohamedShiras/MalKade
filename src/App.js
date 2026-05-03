@@ -11,7 +11,7 @@ const CARD_IMAGES = [
 ];
 
 const HERO_IMAGE =
-  "/Background.png";
+  process.env.PUBLIC_URL + "/Background.png";
 
 const STORY_IMAGE =
   "https://i.pinimg.com/736x/59/a9/af/59a9afd3b7013c73872c2382089b134a.jpg";
@@ -228,7 +228,7 @@ export default function MalKade() {
           transition: "all .4s",
         }}
       >
-        <img src="/MalKade_LogoTT.png" alt="MalKade Logo" style={{ height: 30, objectFit: "contain", flexShrink: 0 }} />
+        <img src={process.env.PUBLIC_URL + "/MalKade_LogoTT.png"} alt="MalKade Logo" style={{ height: 30, objectFit: "contain", flexShrink: 0 }} />
         <div style={{ display: "flex", gap: 4 }}>
           {["Collections", "Occasions", "Story", "Contact"].map((l) => (
             <a key={l} href={`#${l.toLowerCase()}`} className="nav-link" style={{ margin: "0 16px" }}>{l}</a>
